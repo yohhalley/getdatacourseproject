@@ -53,14 +53,14 @@ output: html_document
     ##Add the y_all and subject_all values to x_all as additional columns...
     all_data <- cbind(x_all, y_all)
     all_data <- cbind(all_data, subject_all)
-...
+```
 
 *Finally, using the aggregate function, we calculate the mean per person per action of each measurement, summarizing our dataset.
 
-...{r}
+```{r}
     tidyData<-aggregate(all_data[, 1:79], list(all_data$Activity, all_data$Subject), mean)
     colnames(tidyData)[1] <- "Activity"
     colnames(tidyData)[2] <- "Subject"
-...
+```
 
 *With this, we conclude our processing of the data. The final data may be found at the tidyData.txt file, and may be reproduced by running the run_analysis.R script. For information on the fields used in each column, please refer to the CodeBook.md file.
